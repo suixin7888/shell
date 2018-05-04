@@ -1,0 +1,7 @@
+#!/usr/bin/expect
+spawn ssh root@192.168.25.221 uptime
+expect {
+	"yes/no" {exp_end "yes\r";exp_continue}
+	"*password" {exp_send "redhat\r"}
+}
+expect eof
